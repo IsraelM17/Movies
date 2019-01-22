@@ -44,7 +44,7 @@ class _MoviesListState extends State<MoviesList> {
                   return MovieListItem(_media[index]);
               },
             ),
-          ),
+          )
         );
   }
 */
