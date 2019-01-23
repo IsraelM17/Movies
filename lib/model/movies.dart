@@ -34,10 +34,21 @@ class Movies{
     release_date  : jsonMap['release_date'],
     overview      : jsonMap['overview'],
     genre_ids     : jsonMap['genre_ids'].toList()
-
     );
   }
   
+  factory Movies.fromJsonId(Map jsonMap){
+    return Movies(
+      id            : jsonMap['id'].toInt(),
+    vote_average  : jsonMap['vote_average'].toDouble(),
+    title         : jsonMap['title'].toString(),
+    poster_path   : jsonMap['poster_path'],
+    backdrop_path : jsonMap['backdrop_path'],
+    release_date  : jsonMap['release_date'],
+    overview      : jsonMap['overview'],
+    );
+  }
+
 /*Esta manera no me gusto
   factory Movies(Map jsonMap){
     try{

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:videos/common/httpHandler.dart';
 import 'package:videos/model/movies.dart';
 import 'package:videos/movie_list_item.dart';
+import 'package:videos/movie_detail.dart';
 import 'package:videos/common/navigaton.dart';
 
 class MoviesList extends StatefulWidget {
@@ -58,8 +59,11 @@ class _MoviesListState extends State<MoviesList> {
              return new GestureDetector(
                child: MovieListItem(_media[index]),
                onTap: (){
-                 print(_media[index].title+" : "+_media[index].id.toString());
-                 NavigatonTo.goToMovieDetail(context, "/movieDetail");
+                 Navigator.push(context, 
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetail(movie: _media[index],),
+                    ),
+                 );
                },
              );
        },
@@ -67,4 +71,6 @@ class _MoviesListState extends State<MoviesList> {
    );
   }
   
+  
+
 }

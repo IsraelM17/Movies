@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:videos/common/httpHandler.dart';
+import 'package:videos/model/movies.dart';
 
 class MovieDetail extends StatefulWidget {
+
+  final Movies movie;
+  MovieDetail({this.movie});
+  
   @override
-  _MovieDetailState createState() => new _MovieDetailState();
+  _MovieDetailState createState() => new _MovieDetailState(movie: movie);
+
  }
+
 class _MovieDetailState extends State<MovieDetail> {
+
+  final Movies movie;
+  _MovieDetailState({this.movie});
+
   @override
   Widget build(BuildContext context) {
    return new Container(
@@ -18,10 +30,11 @@ class _MovieDetailState extends State<MovieDetail> {
               backgroundColor: Colors.blueGrey,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                title: Text('Movie',
+                title: Text(movie.title,
                   style: TextStyle(fontSize: 16.0),
+                  overflow: TextOverflow.ellipsis,
                 ),
-                background: Image.network("https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                background: Image.network(movie.getPostrUrl(),
                 fit: BoxFit.cover
                 ),
               ),
@@ -30,8 +43,13 @@ class _MovieDetailState extends State<MovieDetail> {
         },
         body: Scaffold(
           backgroundColor: Colors.blueGrey[100],
-          body: Center(
-            child: Text('Movie'),
+          body: Container(
+            child: Row(
+              children: <Widget>[
+                Text(movie.title),
+                IconButton(icon: Icon(Icons.movie),),
+              ],
+            )
           ),
         ),
       ),

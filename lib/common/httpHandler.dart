@@ -11,8 +11,8 @@ class HttpHandler{
 
   Future<dynamic> getJson(Uri uri) async {
     http.Response response  = await http.get(uri);
-    //var jsonn = json.decode(response.body);
-    //print(jsonn);
+    var jsonn = json.decode(response.body);
+    print(jsonn);
     return json.decode(response.body);
   }
 
@@ -25,6 +25,17 @@ class HttpHandler{
 
     return getJson(uri).then(((data) => data['results'].map<Movies>((item) => new Movies.fromJson(item)).toList()));
 
+  }
+
+  Future<Movies> fetchMoviesId(int id) async{
+
+    var uri = new Uri.https(url, "3/movie/"+id.toString(),{
+      'api_key': API_KEY,
+      'page':"1",
+      'language' : language
+    });
+    var response = await http.get(uri);
+    return Movies.fromJsonId(json.decode(response.body));
   }
 
 }

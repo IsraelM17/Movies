@@ -39,20 +39,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       backgroundColor: Colors.blueGrey[100],
-      bottomNavigationBar: /*new Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: Colors.blueGrey,
-          primaryColor: Colors.white,
-          //textTheme: Theme.of(context).textTheme.copyWith(caption: TextStyle(color: Colors.yellow)),
-        ),
-        child: new BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: 0,
-          items: _getItemsFooter(),
-          onTap: _onItemTapped,
-        ),
-      )*/
-      BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         items: _getItemsFooter(),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
