@@ -44,12 +44,37 @@ class _MovieDetailState extends State<MovieDetail> {
         body: Scaffold(
           backgroundColor: Colors.blueGrey[100],
           body: Container(
-            child: Row(
+            margin: EdgeInsets.all(10.0),
+            child: Stack(
               children: <Widget>[
-                Text(movie.title),
-                IconButton(icon: Icon(Icons.movie),),
+                new Positioned(
+                  left: 0.0,
+                  top: 5.0,
+                  width: MediaQuery.of(context).size.width, // --> Ajusta el elemente en el centro de la pantalla
+                  child: Container(
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                       ButtonTheme(
+                         minWidth: MediaQuery.of(context).size.width,
+                         height: 40,
+                         child: RaisedButton.icon(
+                            label: Text('Reproducir', style: TextStyle(color: Colors.white),),
+                            icon: Icon(Icons.play_circle_outline, color: Colors.white),
+                            onPressed: (){
+                                print('Guapo');
+                            },
+                            color: Colors.lightBlue[800],
+                            textColor: Colors.white,
+                          ),
+                       ),
+                       
+                      ],
+                    ),
+                  ),
+                )
               ],
-            )
+            ),
           ),
         ),
       ),
