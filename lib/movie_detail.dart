@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videos/common/httpHandler.dart';
 import 'package:videos/model/movies.dart';
+import 'package:videos/video.dart';
 
 class MovieDetail extends StatefulWidget {
 
@@ -63,12 +64,12 @@ class _MovieDetailState extends State<MovieDetail> {
                             icon: Icon(Icons.play_circle_outline, color: Colors.white),
                             onPressed: (){
                                 print('Guapo');
+                                goToVideo();
                             },
                             color: Colors.lightBlue[800],
                             textColor: Colors.white,
                           ),
                        ),
-                       
                       ],
                     ),
                   ),
@@ -80,4 +81,14 @@ class _MovieDetailState extends State<MovieDetail> {
       ),
    );
   }
+  
+  goToVideo(){
+    Navigator.push(context, 
+      MaterialPageRoute(
+        builder: (context) => ChewieDemo()
+      )
+    );
+  }
+  
+
 }
