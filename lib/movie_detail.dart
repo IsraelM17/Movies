@@ -73,6 +73,28 @@ class _MovieDetailState extends State<MovieDetail> {
                       ],
                     ),
                   ),
+                ),
+                new Positioned(
+                  left: 1.0,
+                  top: 60.0,
+                  width: MediaQuery.of(context).size.width,
+                  child: new Container(
+                    width: 30,
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          movie.overview,
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontFamily: 'Nunito',
+                            fontSize: 15
+                          ),
+                          //overflow: TextOverflow.ellipsis,
+                        )
+                      ],
+                    ),
+                  )
                 )
               ],
             ),
