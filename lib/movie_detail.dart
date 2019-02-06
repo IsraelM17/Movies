@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videos/common/httpHandler.dart';
 import 'package:videos/model/movies.dart';
+import 'package:videos/movies_list.dart';
 import 'package:videos/video.dart';
 
 class MovieDetail extends StatefulWidget {
@@ -20,8 +21,8 @@ class _MovieDetailState extends State<MovieDetail> {
 
   @override
   Widget build(BuildContext context) {
-   return new Container(
-      child: NestedScrollView(
+   return new Scaffold(
+      body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsIscrolled){
           return <Widget>[
             SliverAppBar(
@@ -39,10 +40,39 @@ class _MovieDetailState extends State<MovieDetail> {
                 fit: BoxFit.cover
                 ),
               ),
+            ),
+            SliverFillRemaining(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start, 
+                children: <Widget>[
+                  ButtonTheme( 
+                    minWidth:  MediaQuery.of(context).size.width,
+                    height: 40,
+                    child: RaisedButton.icon(
+                      label: Text('Reproducir', style: TextStyle(color: Colors.white),),
+                      icon: Icon(Icons.play_circle_outline, color: Colors.white,),
+                      onPressed: (){
+                        goToVideo();
+                      },
+                      color: Colors.lightBlue[800],
+                      textColor: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    movie.overview,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 15
+                    ),
+                  ),
+                ],
+              )
             )
           ];
         },
-        body: Scaffold(
+        body: MoviesList()
+        /*Scaffold(
           backgroundColor: Colors.blueGrey[100],
           body: Container(
             margin: EdgeInsets.all(10.0),
@@ -70,20 +100,7 @@ class _MovieDetailState extends State<MovieDetail> {
                             textColor: Colors.white,
                           ),
                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                new Positioned(
-                  left: 1.0,
-                  top: 60.0,
-                  width: MediaQuery.of(context).size.width,
-                  child: new Container(
-                    width: 30,
-                    child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
+                       Text(
                           movie.overview,
                           textAlign: TextAlign.justify,
                           style: TextStyle(
@@ -91,15 +108,15 @@ class _MovieDetailState extends State<MovieDetail> {
                             fontSize: 15
                           ),
                           //overflow: TextOverflow.ellipsis,
-                        )
+                        ),
                       ],
                     ),
-                  )
-                )
+                  ),
+                ),
               ],
             ),
           ),
-        ),
+        ),*/
       ),
    );
   }
