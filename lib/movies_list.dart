@@ -26,33 +26,11 @@ class _MoviesListState extends State<MoviesList> {
           _media.addAll(movies);
         });
   }
-
-  /*
-  @override
-  Widget build(BuildContext context){
-    return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-            ),
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-              ),
-              itemCount: _media.length,
-              itemBuilder: (BuildContext context, int index){
-                  return MovieListItem(_media[index]);
-              },
-            ),
-          )
-        );
-  }
-*/
     
   @override
   Widget build(BuildContext context) {
    return new Container(
+     height: MediaQuery.of(context).size.height,
      child: ListView.builder(
        itemCount: _media.length,
        itemBuilder: (BuildContext context, int index){
