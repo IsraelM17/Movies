@@ -29,7 +29,6 @@ class _MovieDetailState extends State<MovieDetail> {
               expandedHeight: 200.0,
               floating: false,
               pinned: true,
-              backgroundColor: Colors.blueGrey,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(movie.title,
