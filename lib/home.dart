@@ -20,7 +20,6 @@ class _HomeState extends State<Home> {
    return new Scaffold(
       appBar: AppBar(
         title: Text("Cirugía Veterinaria"),
-        backgroundColor: Colors.blueGrey,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search, color: Colors.white),
@@ -38,7 +37,6 @@ class _HomeState extends State<Home> {
           _widgetOptions.elementAt(_selectedIndex)
         ],
       ),
-      backgroundColor: Colors.blueGrey[100],
       bottomNavigationBar: BottomNavigationBar(
         items: _getItemsFooter(),
         currentIndex: _selectedIndex,
