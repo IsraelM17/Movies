@@ -3,7 +3,7 @@ import 'package:videos/common/httpHandler.dart';
 import 'package:videos/model/movies.dart';
 import 'package:videos/movie_list_item.dart';
 import 'package:videos/movie_detail.dart';
-import 'package:videos/common/navigaton.dart';
+import 'package:videos/common/navigation.dart';
 
 class MoviesList extends StatefulWidget {
   @override
