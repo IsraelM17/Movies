@@ -80,4 +80,7 @@ flutter:
     - family: Nunito
       fonts:
         - asset: assets/fonts/Nunito.ttf
+
+  assets:
+    - assets/images/veterinarian.png 
   
